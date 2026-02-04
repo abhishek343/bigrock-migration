@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabzi Sorted 🍛</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Sabzi Sorted 🍛</h1>
+        <div class="nav-tabs">
+            <button id="tabPantry" class="tab-btn active" onclick="switchTab('pantry')">🥕 Pantry</button>
+            <button id="tabCookbook" class="tab-btn" onclick="switchTab('cookbook')">📕 Cookbook</button>
+        </div>
+    </header>
+
+    <main id="pantryView">
+        <p class="subtitle">What's in your kitchen right now?</p>
+
+        <div class="settings">
+            <strong>I am a:</strong>
+            <label><input type="radio" name="skill" value="Beginner" checked> Beginner</label>
+            <label><input type="radio" name="skill" value="Expert"> Expert</label>
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="customInput" placeholder="Type ingredient (e.g. Methi)" list="suggestions">
+            <button class="add-btn" onclick="addCustom()">Add</button>
+            <datalist id="suggestions">
+                <option value="Methi"><option value="Besan"><option value="Curry Leaves">
+            </datalist>
+        </div>
+
+        <h3 class="section-title">🥦 Fresh / Base</h3>
+        <div id="freshGrid" class="grid"></div>
+
+        <div class="spice-header">
+            <h3 class="section-title">🧂 Spices & Pantry</h3>
+            <label class="toggle-label">
+                <input type="checkbox" id="spiceToggle" checked onchange="toggleStandardSpices()"> 
+                Standard Masala Dabba
+            </label>
+        </div>
+        <div id="spiceGrid" class="grid"></div>
+
+        <button id="generateBtn" class="action-btn" onclick="generateRecipes()">Find Recipes</button>
+        <div id="loader" class="loader">👨‍🍳 Chef is thinking...</div>
+        
+        <div id="results"></div>
+    </main>
+
+    <main id="cookbookView" style="display: none;">
+        <h2>My Saved Recipes ❤️</h2>
+        <div id="cookbookGrid"></div>
+        <button class="clear-btn" onclick="clearCookbook()">🗑️ Clear All Recipes</button>
+    </main>
+
+    <footer>Built with 🧡 by [Your Name] • <a href="https://cmsschange.org">cmsschange.org</a></footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
